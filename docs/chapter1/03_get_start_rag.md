@@ -132,6 +132,9 @@ load_dotenv()
     text_splitter = RecursiveCharacterTextSplitter()
     texts = text_splitter.split_documents(docs)
     ```
+> 递归分割：首先尝试用最大的分隔符将文本分成大块，如果大块仍然太大，就再用更小的分隔符继续分割，如此递归下去，直到所有块都小于目标大小。
+算法实现步骤
+假设我们使用默认参数：chunk_size=4000, chunk_overlap=200，默认分隔符为 ["\n\n", "\n", " ", ""]，那么第一轮：尝试用 "\n\n" 分割，如果分割后的某个块仍太大，则继续采用 "\n" 分割，以此类推，当所有部分都小于块大小，则进入合并阶段
 
 ### 3.3 索引构建 (Index Construction)
 
