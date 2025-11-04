@@ -152,3 +152,85 @@ Element 3 (Header):
 ## 练习
 
 - 使用`partition_pdf`替换当前`partition`函数并分别尝试用`hi_res`和`ocr_only`进行解析，观察输出结果有何变化。
+hi_res：
+```text
+解析完成: 224 个元素, 8277 字符
+元素类型: {'Image': 21, 'UncategorizedText': 89, 'Header': 4, 'NarrativeText': 68, 'Table': 4, 'FigureCaption': 4, 'Title': 30, 'ListItem': 4}
+
+所有元素:
+Element 0 (Image):
+
+============================================================
+Element 1 (UncategorizedText):
+Bh fe Se «8 Be BR 8H
+============================================================
+Element 2 (UncategorizedText):
+地图
+============================================================
+Element 3 (UncategorizedText):
+Oke 6B CR OBS
+============================================================
+Element 4 (Header):
+百度首页 登录 注册
+============================================================
+Element 5 (UncategorizedText):
+Cy) Bai@ Bil | eee
+============================================================
+Element 6 (UncategorizedText):
+x
+============================================================
+Element 7 (UncategorizedText):
+进⼊词条
+============================================================
+Element 8 (UncategorizedText):
+全站搜索
+============================================================
+Element 9 (UncategorizedText):
+| my
+============================================================
+```
+ocr_only
+```text
+解析完成: 138 个元素, 8266 字符
+元素类型: {'UncategorizedText': 50, 'Title': 61, 'NarrativeText': 26, 'ListItem': 1}
+
+所有元素:
+Element 0 (UncategorizedText):
+Bh fe Se «8 Be BR 8H 4 Oke 6B CR OBS HES SR ith
+============================================================
+Element 1 (Title):
+Cy) Bai@ Bil | eee x SABER | my
+============================================================
+Element 2 (NarrativeText):
+WBARAATERBEBANEAAR, VRE DBI HAER RE, CEL IEROR: REAR RRMA, NECA CRIRS, LM SER! iFIB>> Bn pias HEAR AAS a MAB BAAR RATE > 1 REA i oa E Ay ) Ha Otte Lewes
+============================================================
+Element 3 (UncategorizedText):
+ARB WARAZ—
+============================================================
+Element 4 (Title):
+MoingSh
+============================================================
+Element 5 (NarrativeText):
+fomieas tt ne OACP r>)
+============================================================
+Element 6 (Title):
+fit ey
+============================================================
+Element 7 (Title):
+oo ef HEhH - NSA RAGFlow BAF RRMA
+============================================================
+Element 8 (Title):
+RAG: 5 RS aoe
+============================================================
+Element 9 (UncategorizedText):
+wee) O11) O38
+============================================================
+```
+
+几种partation策略的对比：
+auto:
+自动检测PDF类型，优先使用原生文本提取，只在必要时使用OCR，输出主要包含原生文本元素，基本的布局信息
+hi_res ：
+使用计算机视觉分析页面布局，提取所有文本区域（原生 + OCR），识别表格、图像中的文字，文本内容最完整，处理时间较长
+ocr_only：
+忽略原生文本，对整个页面进行OCR识别
