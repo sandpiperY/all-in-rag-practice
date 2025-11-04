@@ -109,7 +109,8 @@ for i, element in enumerate(elements, 1):
 ```
 这里的 `e.category` 是上表中的文档元素类型
 代码输出
->解析完成: 279 个元素, 7500 字符
+```text
+解析完成: 279 个元素, 7500 字符
 
 元素类型: {'Header': 22, 'Title': 195, 'UncategorizedText': 41, 'NarrativeText': 3, 'Footer': 15, 'ListItem': 3}
 
@@ -130,7 +131,7 @@ Element 2 (Header):
 Element 3 (Header):
 知道
 ============================================================
-
+```
 
 **partition函数参数解析：**
 
