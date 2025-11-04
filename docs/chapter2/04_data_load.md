@@ -120,6 +120,42 @@ for i, element in enumerate(elements, 1):
 
 `partition`函数使用自动文件类型检测，内部会根据文件类型路由到对应的专用函数（如PDF文件会调用`partition_pdf`）。如果需要更专业的PDF处理，可以直接使用`from unstructured.partition.pdf import partition_pdf`，它提供更多PDF特有的参数选项，如OCR语言设置、图像提取、表格结构推理等高级功能，同时性能更优。
 
+`e.category`就是上表中列出的文档元素类型
+代码输出：
+>解析完成: 279 个元素, 7500 字符
+元素类型: {'Header': 22, 'Title': 195, 'UncategorizedText': 41, 'NarrativeText': 3, 'Footer': 15, 'ListItem': 3}
+所有元素:
+Element 0 (Header):
+网页
+============================================================
+Element 1 (Header):
+新闻
+============================================================
+Element 2 (Header):
+贴吧
+============================================================
+Element 3 (Header):
+知道
+============================================================
+Element 4 (Header):
+网盘
+============================================================
+Element 5 (Header):
+图片
+============================================================
+Element 6 (Header):
+视频
+============================================================
+Element 7 (Header):
+地图
+============================================================
+Element 8 (Header):
+文库
+============================================================
+Element 9 (Header):
+资讯
+============================================================
+
 > **完整代码文件**：[`01_unstructured_example.py`](https://github.com/datawhalechina/all-in-rag/blob/main/code/C2/01_unstructured_example.py)
 
 > [**Unstructured官方文档**](https://docs.unstructured.io/open-source/core-functionality/partitioning)
